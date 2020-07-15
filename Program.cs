@@ -6,17 +6,10 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter username: ");
-            string u = Console.ReadLine();
-            Console.Write("Enter Passcode: ");
-            string p = Console.ReadLine();
-            while (p != "secret")
+            for(int i = 1; i <= 10; i++)
             {
-                Console.WriteLine("User {0} cannot be Authenticated.", u);
-                Console.Write("Enter Passcode: ");
-                p = Console.ReadLine();
+                Console.WriteLine(i);
             }
-            Console.WriteLine("User {0} has been authenticade.", u);
         }
     }
 }
