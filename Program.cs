@@ -10,19 +10,19 @@ namespace learning_csharp
             string a = Console.ReadLine();
             if (a == "")
             {
-                a = WriteTryAgain(a);
+                a = TryAgain(a);
             }
             Console.Write("Enter Age: ");
             string b = Console.ReadLine();
-            if (a == "")
+            if (b == "")
             {
-                a = WriteTryAgain(a);
+                b = TryAgain(b);
             }
             Console.Write("Enter your birth month: ");
             string c = Console.ReadLine();
-            if (a == "")
+            if (c == "")
             {
-                a = WriteTryAgain(a);
+                c = TryAgain(c);
             }
             Console.WriteLine("Your name is  {0}", a);
             Console.WriteLine("Your age is {0}",b);
@@ -41,10 +41,13 @@ namespace learning_csharp
                 Console.WriteLine("You are a Gemini");
             }
         }
-        static string WriteTryAgain(string x)
+        static string TryAgain(string x)
         {
-            Console.Write("You didn't type anything try again:");
-            x = Console.ReadLine();
+            do
+            {
+                Console.Write("You didn't type anything try again:");
+                x = Console.ReadLine();
+            } while (x == "");
             return (x);
         }
     }
