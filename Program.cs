@@ -6,38 +6,26 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter Name: ");
-            string a = TryAgain();
-            Console.Write("Enter Age: ");
-            string b = TryAgain();
-            Console.Write("Enter your birth month: ");
-            string c = TryAgain();
-            Console.WriteLine("Your name is  {0}", a);
-            Console.WriteLine("Your age is {0}",b);
-            Console.WriteLine("Your birth month is {0}", c);
-
-            if(c == "march")
+            Console.WriteLine("How many years of experience: ");
+            int years = int.Parse(Console.ReadLine());
+            switch(years)
             {
-                Console.WriteLine("You are an Aries.");
+                case 0:
+                    Console.WriteLine("Inexperienced");
+                    break;
+                case 1:
+                    Console.WriteLine("Junior");
+                    break;
+                case 2:
+                    Console.WriteLine("Intermediate");
+                    break;
+                case 3:
+                    Console.WriteLine("Advanced");
+                    break;
+                default:
+                    Console.WriteLine("Senior");
+                    break;
             }
-            else if(c == "april")
-                {
-                Console.WriteLine("You are a Taurus");
-            }
-            else if(c == "may")
-            {
-                Console.WriteLine("You are a Gemini");
-            }
-        }
-        static string TryAgain()
-        {
-            string x = Console.ReadLine();
-            while (x == "")
-            {
-                Console.Write("You didn't type anything try again:");
-                x = Console.ReadLine();
-            }
-            return (x);
         }
     }
 }
