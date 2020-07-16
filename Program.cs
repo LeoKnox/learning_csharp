@@ -6,12 +6,46 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            int[] studentGrade = new int[] { 80, 77, 45, 87, 53, 43, 67, 24, 86, 98 };
-
-            foreach (int i in studentGrade)
+            Console.Write("Enter Name: ");
+            string a = Console.ReadLine();
+            if (a == "")
             {
-                Console.WriteLine(i);
+                a = WriteTryAgain(a);
             }
+            Console.Write("Enter Age: ");
+            string b = Console.ReadLine();
+            if (a == "")
+            {
+                a = WriteTryAgain(a);
+            }
+            Console.Write("Enter your birth month: ");
+            string c = Console.ReadLine();
+            if (a == "")
+            {
+                a = WriteTryAgain(a);
+            }
+            Console.WriteLine("Your name is  {0}", a);
+            Console.WriteLine("Your age is {0}",b);
+            Console.WriteLine("Your birth month is {0}", c);
+
+            if(c == "march")
+            {
+                Console.WriteLine("You are an Aries.");
+            }
+            else if(c == "april")
+                {
+                Console.WriteLine("You are a Taurus");
+            }
+            else if(c == "may")
+            {
+                Console.WriteLine("You are a Gemini");
+            }
+        }
+        static string WriteTryAgain(string x)
+        {
+            Console.Write("You didn't type anything try again:");
+            x = Console.ReadLine();
+            return (x);
         }
     }
 }
