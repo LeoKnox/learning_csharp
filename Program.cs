@@ -6,16 +6,11 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            for(int i = 0; i <5; i++)
+            int[] studentGrade = new int[] { 80, 77, 45, 87, 53, 43, 67, 24, 86, 98 };
+
+            foreach (int i in studentGrade)
             {
-                for(int j = 1; j <= 10; j++)
-                {
-                    Console.WriteLine(j);
-                }
-                for(int k = 10; k >= 1; k--)
-                {
-                    Console.WriteLine(k);
-                }
+                Console.WriteLine(i);
             }
         }
     }
