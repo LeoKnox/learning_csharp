@@ -7,16 +7,18 @@ public class Program
 		var rand = new Random();
 		int sum = 0;
 		int crit = 0;
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 1000; i++)
 		{
-			int x = rand.Next(1,20);
+			int x = rand.Next(1,21);
 			if (x >= 14)
 			{
-				sum += rand.Next(1,10);
-				crit = sum;
+				int y = rand.Next(1,10);
+				sum += y;
+				crit += y;
 			}
-			if (x >= 18)
+			if (x >= 20)
 			{
+				crit += rand.Next(1,10);
 				crit += rand.Next(1,10);
 			}
 		}
