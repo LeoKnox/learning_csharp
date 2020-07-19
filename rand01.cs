@@ -18,6 +18,14 @@ public class Program
 			}
 			if (x >= 20)
 			{
+				int t = rand.Next(1,10);
+				sum += t;
+				sum += rand.Next(1,10);
+				sum += rand.Next(1,10);
+				sum += rand.Next(1,10);
+				crit += t;
+				crit += rand.Next(1,10);
+				crit += rand.Next(1,10);
 				crit += rand.Next(1,10);
 				crit += rand.Next(1,10);
 			}
