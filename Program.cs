@@ -6,25 +6,22 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("How many years of experience: ");
-            int years = int.Parse(Console.ReadLine());
-            switch(years)
+            Console.WriteLine("Enter number of students:");
+            var studentCount = int.Parse(Console.ReadLine());
+
+            var studentNames = new string[studentCount];
+            var studentGrades = new string[studentCount];
+
+            for (int i = 0; i < studentCount; i++)
             {
-                case 0:
-                    Console.WriteLine("Inexperienced");
-                    break;
-                case 1:
-                    Console.WriteLine("Junior");
-                    break;
-                case 2:
-                    Console.WriteLine("Intermediate");
-                    break;
-                case 3:
-                    Console.WriteLine("Advanced");
-                    break;
-                default:
-                    Console.WriteLine("Senior");
-                    break;
+                Console.Write("Student Name: ");
+                studentNames[i] = Console.ReadLine();
+                Console.Write("Student Grade: ");
+                studentGrades[i] = Console.ReadLine();
+            }
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Student name: {0} Student Grade: {1}", studentNames[i], studentGrades[i]);
             }
         }
     }
