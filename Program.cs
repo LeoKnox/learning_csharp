@@ -7,15 +7,19 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            var studentNames = new List<string>();
-            var studentGrades = new List<int>();
+            var students = new List<Student>();
 
             while(true)
             {
+                var newStudent = new Student();
+
                 Console.Write("Student Name: ");
-                studentNames.Add(Console.ReadLine());
+                newStudent.Name = (Console.ReadLine());
                 Console.Write("Student Grade: ");
-                studentGrades.Add(int.Parse(Console.ReadLine()));
+                newStudent.Grade = (int.Parse(Console.ReadLine()));
+                Console.Write("Student email: ");
+                newStudent.email = (Console.ReadLine());
+                students.Add(newStudent);
 
                 Console.Write("Add another student? (y/n)");
                 if (Console.ReadLine() != "y")
@@ -23,10 +27,18 @@ namespace learning_csharp
                     break;
                 }
             }
-            for (int i = 0; i < studentNames.Count; i++)
+
+            foreach (var student in students)
             {
-                Console.WriteLine("Student name: {0} Student Grade: {1}", studentNames[i], studentGrades[i]);
+                Console.WriteLine("Student name: {0} Student Grade: {1}", student.Name, student.Grade);
             }
         }
+    }
+
+    class Student
+    {
+        public string Name;
+        public int Grade;
+        public string email;
     }
 }
