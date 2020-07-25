@@ -20,6 +20,8 @@ namespace learning_csharp
                 Console.Write("Student email: ");
                 newStudent.email = Console.ReadLine();
                 students.Add(newStudent);
+                Student.Count++;
+                Console.WriteLine("Number of Students: {0}", Student.Count);
 
                 Console.Write("Add another student? (y/n)");
                 if (Console.ReadLine() != "y")
@@ -37,13 +39,15 @@ namespace learning_csharp
 
     class Student
     {
+        static public int Count = 0;
+
         public string Name;
         public int Grade;
         private string Email;
 
         public string email
         {
-            set { Email = value; Console.WriteLine(Email); }
+            set { Email = value; Console.WriteLine(Email); } // setter acts as function can add logic to it.
         }
 
         public void SetEmail(string email)
