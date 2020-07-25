@@ -13,12 +13,9 @@ namespace learning_csharp
             {
                 var newStudent = new Student();
 
-                Console.Write("Student Name: ");
-                newStudent.Name = (Console.ReadLine());
-                Console.Write("Student Grade: ");
-                newStudent.Grade = (int.Parse(Console.ReadLine()));
-                Console.Write("Student email: ");
-                newStudent.email = Console.ReadLine();
+                newStudent.Name = Util.Console.Ask("Student Name: ");
+                newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
+                newStudent.email = Util.Console.Ask("Student Email: ");
                 students.Add(newStudent);
                 Student.Count++;
                 Console.WriteLine("Number of Students: {0}", Student.Count);
