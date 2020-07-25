@@ -18,7 +18,7 @@ namespace learning_csharp
                 Console.Write("Student Grade: ");
                 newStudent.Grade = (int.Parse(Console.ReadLine()));
                 Console.Write("Student email: ");
-                newStudent.SetEmail(Console.ReadLine());
+                newStudent.email = Console.ReadLine();
                 students.Add(newStudent);
 
                 Console.Write("Add another student? (y/n)");
@@ -40,6 +40,11 @@ namespace learning_csharp
         public string Name;
         public int Grade;
         private string Email;
+
+        public string email
+        {
+            set { Email = value; Console.WriteLine(Email); }
+        }
 
         public void SetEmail(string email)
         {
