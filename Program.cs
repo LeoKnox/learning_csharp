@@ -7,6 +7,7 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
+            Import();
             var students = new List<Student>();
 
             while(true)
@@ -32,6 +33,11 @@ namespace learning_csharp
                 Console.WriteLine("Student name: {0} Student Grade: {1}", student.Name, student.Grade);
             }
         }
+
+        static void Import()
+        {
+            var importedStudent = new Student("dasffasf", 534, "adasfdsaf"); // simulates imported data
+        }
     }
 
     class Student
@@ -41,6 +47,17 @@ namespace learning_csharp
         public string Name;
         public int Grade;
         private string Email;
+
+        public Student()
+        {
+        }
+
+        public Student(string name, int grade, string email)
+        {
+            Name = name;
+            Grade = grade;
+            Email = email;
+        }
 
         public string email
         {
