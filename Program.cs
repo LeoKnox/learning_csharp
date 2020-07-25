@@ -40,13 +40,22 @@ namespace learning_csharp
         }
     }
 
-    class Student
+    class Member
+    {
+        public String Name;
+        protected String Email; // Use protected instead of private for inheritance
+    }
+
+    class Student : Member
     {
         static public int Count = 0;
 
-        public string Name;
         public int Grade;
-        private string Email;
+
+        public string email
+        {
+            set { Email = value; Console.WriteLine(Email); } // setter acts as function can add logic to it.
+        }
 
         public Student()
         {
@@ -58,15 +67,10 @@ namespace learning_csharp
             Grade = grade;
             Email = email;
         }
+    }
 
-        public string email
-        {
-            set { Email = value; Console.WriteLine(Email); } // setter acts as function can add logic to it.
-        }
-
-        public void SetEmail(string email)
-        {
-            Email = email;
-        }
+    class Teacher : Member
+    {
+        public int ClassSize;
     }
 }
