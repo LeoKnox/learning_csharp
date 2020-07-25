@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace learning_csharp
 {
@@ -6,20 +7,23 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter number of students:");
-            var studentCount = int.Parse(Console.ReadLine());
+            var studentNames = new List<string>();
+            var studentGrades = new List<int>();
 
-            var studentNames = new string[studentCount];
-            var studentGrades = new string[studentCount];
-
-            for (int i = 0; i < studentCount; i++)
+            while(true)
             {
                 Console.Write("Student Name: ");
-                studentNames[i] = Console.ReadLine();
+                studentNames.Add(Console.ReadLine());
                 Console.Write("Student Grade: ");
-                studentGrades[i] = Console.ReadLine();
+                studentGrades.Add(int.Parse(Console.ReadLine()));
+
+                Console.Write("Add another student? (y/n)");
+                if (Console.ReadLine() != "y")
+                {
+                    break;
+                }
             }
-            for (int i = 0; i < studentCount; i++)
+            for (int i = 0; i < studentNames.Count; i++)
             {
                 Console.WriteLine("Student name: {0} Student Grade: {1}", studentNames[i], studentGrades[i]);
             }
