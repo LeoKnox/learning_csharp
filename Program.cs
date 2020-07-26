@@ -50,6 +50,8 @@ namespace learning_csharp
                 Console.WriteLine("Student name: {0} Student Grade: {1}", student.Name, student.Grade);
             }
             Exports();
+
+            students = null; // sets object to empty for garbage collection does not work for int does with string
         }
 
         static void Import()
