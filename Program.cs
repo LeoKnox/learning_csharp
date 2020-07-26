@@ -7,70 +7,53 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
-            Import();
-            var students = new List<Student>();
+            var Surveys = new List<Survey>();
 
             while(true)
             {
-                var newStudent = new Student();
+                Survey newSurvey = new Survey();
+                newSurvey.Name = newSurvey.Ask("Enter Name: ");
+                newSurvey.Age = int.Parse(newSurvey.Ask("Enter Age: "));
+                newSurvey.Month = newSurvey.Ask("Enter Birth Month: ");
+                Surveys.Add(newSurvey);
 
-                newStudent.Name = Util.Console.Ask("Student Name: ");
-                newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
-                newStudent.email = Util.Console.Ask("Student Email: ");
-                students.Add(newStudent);
-                Student.Count++;
-                Console.WriteLine("Number of Students: {0}", Student.Count);
-
-                Console.Write("Add another student? (y/n)");
-                if (Console.ReadLine() != "y")
+                if (newSurvey.Ask("Do you wish to contine? y/n ") != "y")
                 {
                     break;
                 }
             }
 
-            foreach (var student in students)
+            foreach (var survey in Surveys)
             {
-                Console.WriteLine("Student name: {0} Student Grade: {1}", student.Name, student.Grade);
+                Console.WriteLine("Name: {0} - Age: {1} - Birth Month: {2}", survey.Name, survey.Age, survey.Month);
+                survey.Sign();
             }
         }
-
-        static void Import()
-        {
-            var importedStudent = new Student("dasffasf", 534, "adasfdsaf"); // simulates imported data
-        }
     }
 
-    class Member
+    class Survey
     {
-        public String Name;
-        protected String Email; // Use protected instead of private for inheritance
-    }
+        public string Name;
+        public int Age;
+        public string Month;
 
-    class Student : Member
-    {
-        static public int Count = 0;
-
-        public int Grade;
-
-        public string email
+        public string Ask(string question)
         {
-            set { Email = value; Console.WriteLine(Email); } // setter acts as function can add logic to it.
+            Console.Write(question);
+            return (Console.ReadLine());
         }
 
-        public Student()
+        public void Sign()
         {
+            switch(Month)
+            {
+                case "April":
+                    Console.WriteLine("Aries");
+                    break;
+                default:
+                    Console.WriteLine("Grue");
+                    break;
+            }
         }
-
-        public Student(string name, int grade, string email)
-        {
-            Name = name;
-            Grade = grade;
-            Email = email;
-        }
-    }
-
-    class Teacher : Member
-    {
-        public int ClassSize;
     }
 }
