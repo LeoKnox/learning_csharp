@@ -12,23 +12,29 @@ namespace learning_csharp
 
             while(true)
             {
-                var newStudent = new Student();
+                try {
+                    var newStudent = new Student();
 
-                newStudent.Name = Util.Console.Ask("Student Name: ");
-                var result = int.TryParse(Util.Console.Ask("Student Grade: "), out newStudent.Grade);
-                while (!result)
-                {
-                    result = int.TryParse(Util.Console.Ask("Student Grade: "), out newStudent.Grade);
+                    newStudent.Name = Util.Console.Ask("Student Name: ");
+                    newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
+                    newStudent.email = Util.Console.Ask("Student Email: ");
+                    students.Add(newStudent);
+                    Student.Count++;
+                    Console.WriteLine("Number of Students: {0}", Student.Count);
+
+                    Console.Write("Add another student? (y/n)");
+                    if (Console.ReadLine() != "y")
+                    {
+                        break;
+                    }
                 }
-                newStudent.email = Util.Console.Ask("Student Email: ");
-                students.Add(newStudent);
-                Student.Count++;
-                Console.WriteLine("Number of Students: {0}", Student.Count);
-
-                Console.Write("Add another student? (y/n)");
-                if (Console.ReadLine() != "y")
+                catch (FormatException)
                 {
-                    break;
+                    Console.WriteLine("Input was not a number.");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error adding student grade, try again");
                 }
             }
 
