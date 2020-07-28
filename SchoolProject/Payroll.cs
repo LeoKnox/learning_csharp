@@ -9,14 +9,19 @@ namespace classroom
     }
     class PayRoll
     {
-        Teacher teacher1 = new Teacher();
-        Teacher teacher2 = new Teacher();
-        Principal principal = new Principal();
+        List<IPayee> payees = new List<IPayee>();
+        public PayRoll()
+        {
+            payees.Add( new Teacher());
+            payees.Add(new Teacher());
+            payees.Add(new Principal());
+        }
         public void PayAll()
         {
-            teacher1.Pay();
-            teacher2.Pay();
-            principal.Pay();
+            foreach (var payee in payees)
+            {
+                payee.Pay();
+            }
         }
     }
 }
