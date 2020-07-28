@@ -11,6 +11,7 @@ namespace learning_csharp
     }
     class Program
     {
+        Logger.Log("Tracker started", "SchoolTracer");
         static List<Student> students = new List<Student>();
         static void Main(string[] args)
         {
