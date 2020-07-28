@@ -47,6 +47,8 @@ namespace learning_csharp
                 }
             }
 
+            ShowGrade("");
+
             foreach (var student in students)
             {
                 Console.WriteLine("Student name: {0} Student Grade: {1}", student.Name, student.Grade);
@@ -78,6 +80,17 @@ namespace learning_csharp
                         break;
                 }
             }
+        }
+
+        static void ShowGrade(string name)
+        {
+            var found = students.Find(student => student.Name == name);
+            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
+        }
+
+        static bool predicate(Student student) // converted into lambda expression above
+        {
+            return (student.Name == "Jim");
         }
     }
 
