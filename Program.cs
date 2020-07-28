@@ -81,16 +81,17 @@ namespace learning_csharp
 
     class Member
     {
-        public String Name;
-        protected String Email; // Use protected instead of private for inheritance
+        public string Name { get; set; }
+        public string Email { get; set; }
+        //protected String Email; // Use protected instead of private for inheritance
     }
 
     class Student : Member
     {
-        static public int Count = 0;
+        static public int Count { get; set; }= 0;
 
-        public int Grade;
-        public School School;
+        public int Grade { get; set; }
+        public School School { get; set; }
 
         public string email
         {
@@ -111,6 +112,6 @@ namespace learning_csharp
 
     class Teacher : Member
     {
-        public int ClassSize;
+        public int ClassSize { get; set; }
     }
 }
