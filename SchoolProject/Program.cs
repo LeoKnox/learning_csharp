@@ -8,15 +8,19 @@ namespace classroom
         static void Main(string[] args)
         {
             Import();
+
+            PayRoll payroll = new PayRoll();
+            payroll.PayAll();
+
             var students = new List<Student>();
 
             while(true)
             {
                 var newStudent = new Student();
 
-                newStudent.Name = Util.Console.Ask("Student Name: ");
-                newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
-                newStudent.email = Util.Console.Ask("Student Email: ");
+                newStudent.Name = Classroom.Console.Ask("Student Name: ");
+                newStudent.Grade = int.Parse(Classroom.Console.Ask("Student Grade: "));
+                newStudent.email = Classroom.Console.Ask("Student Email: ");
                 students.Add(newStudent);
                 Student.Count++;
                 Console.WriteLine("Number of Students: {0}", Student.Count);
