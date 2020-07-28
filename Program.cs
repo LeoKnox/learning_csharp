@@ -16,6 +16,8 @@ namespace learning_csharp
         {
             Import();
 
+            var someObject = new { name = "ddd", num=44 }; // anonymous type, no object name but is object
+
             while(true)
             {
                 try {
